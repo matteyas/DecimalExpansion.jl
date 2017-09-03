@@ -4,11 +4,12 @@ Function for performing decimal expansion on `Rational`s.
 
 ## Output format:
 ### One repeating decimal
+The last (three) digits repeat indefinitely:  
 `decimal_expansion(1//3)   -> 0.333...`  
 `decimal_expansion(37//60) -> 0.61666...`
 
 ### Several repeating decimals
-Everything in the brackets expand indefinitely:  
+Everything in the brackets repeat indefinitely:  
 `   decimal_expansion(1//7) -> 0.[142857]...  = 0.142857142857142857...`  
 `decimal_expansion(105//13) -> 8.0[769230]... = 8.0769230769230769230...`
 
