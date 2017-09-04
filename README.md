@@ -1,6 +1,7 @@
 # DecimalExpansion.jl
 
-Function for performing decimal expansion on `Rational`s. Implemented `Number -> Rational` function as well.
+Function for performing decimal expansion on `Rational`s. ([Decimal Expansion](https://github.com/matteyas/DecimalExpansion.jl/blob/master/README.md#Decimal-Expansion))  
+Function for `Number -> Rational`. ([Number to Rational](https://github.com/matteyas/DecimalExpansion.jl/blob/master/README.md#number-to-rational))
 
 # Decimal Expansion
 
@@ -69,7 +70,7 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
 end
 ```
 
-# Number To Rational
+# Number to Rational
 ## Examples:
 `1/7 |> to_rational -> 1//7`  
 `decimal_expansion(37//60) -> 0.61666... => 0.616666666666 |> to_rational -> 37//60`  
