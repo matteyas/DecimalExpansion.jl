@@ -77,6 +77,7 @@ end
 `15 |> to_rational -> 15//1`
 
 ## Source:
+```
 function to_rational(n::Number)
     to_int(x::Number) = round(x) |> Int
     
@@ -96,3 +97,4 @@ function to_rational(n::Number)
     
     R
 end
+```
