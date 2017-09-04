@@ -69,7 +69,7 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
     output = integer_part |> string
     output*= "."
     output*= "0"^z
-    output *= non_recurring
+    output*= non_recurring
     if recurring != "0"
         if length(recurring) == 1
             output *= "$recurring"^3 * "..."
