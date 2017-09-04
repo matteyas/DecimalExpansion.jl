@@ -19,7 +19,7 @@ Everything in the brackets repeat indefinitely:
 `   decimal_expansion(1//7) -> 0.[142857]...  = 0.142857142857142857...`  
 `decimal_expansion(105//13) -> 8.0[769230]... = 8.0769230769230769230...`
 
-## Easy access Copy/Paste:
+## Copy/Paste version:
 ```julia
 decimal_expansion(R::Rational) = decimal_expansion(R.num, R.den)
 
