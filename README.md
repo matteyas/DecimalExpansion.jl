@@ -1,7 +1,7 @@
 # DecimalExpansion.jl
 
-Function for performing decimal expansion on `Rational`s. ([Decimal Expansion](https://github.com/matteyas/DecimalExpansion.jl/blob/master/README.md#Decimal-Expansion))  
-Function for `Number -> Rational`. ([Number to Rational](https://github.com/matteyas/DecimalExpansion.jl/blob/master/README.md#number-to-rational))
+Function for performing decimal expansion on `Rational`s. ([Decimal Expansion](https://github.com/matteyas/DecimalExpansion.jl#decimal-expansion))  
+Function for `Number -> Rational`. ([Number to Rational](https://github.com/matteyas/DecimalExpansion.jl#number-to-rational))
 
 # Decimal Expansion
 
