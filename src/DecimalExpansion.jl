@@ -15,31 +15,22 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
     integer_part::Int = div(numerator, denominator)
     numerator -= denominator*integer_part
 
-    # pad zeros / significant digits
-    z = 0
+    # first step
     numerator *= 10
-    while numerator < denominator
-        z += 1
-        numerator *= 10
-    end
-
-    # first iteration
-    push!(unique_steps, numerator)
     push!(ordered_steps, numerator)
-    
-    digit::Int = div(numerator, denominator)
-    push!(decimals, digit)
+    push!(unique_steps, numerator)
 
+    # iterative decimal expansion
     while true
-        numerator -= digit*denominator
-        numerator *= 10
         digit = div(numerator, denominator)
-        
-        length(unique_steps) == push!(unique_steps, numerator) |> length &&
-            break
-        
+        numerator -= digit*denominator        
+        numerator *= 10
+
         push!(ordered_steps, numerator)
         push!(decimals, digit)
+
+        length(unique_steps) == push!(unique_steps, numerator) |> length &&
+            break
     end
 
     # separate recurring / non-recurring parts
@@ -49,7 +40,6 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
 
     output = integer_part |> string
     output*= "."
-    output*= "0"^z
     output*= non_recurring
     if recurring != "0"
         if length(recurring) == 1
