@@ -7,7 +7,7 @@ Function for performing decimal expansion on `Rational`s.
 
 ### No repeating decimal
 Outputs the full terminating decimal expansion:  
-`decimal_expand(41//(2^20)) -> 0.00003910064697265625`
+`decimal_expansion(41//(2^20)) -> 0.00003910064697265625`
 
 ### One repeating decimal
 The last (three) digits repeat indefinitely:  
