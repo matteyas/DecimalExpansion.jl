@@ -13,28 +13,23 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
     decimals = Vector{Int}()
 
     integer_part::Int = div(numerator, denominator)
-    numerator -= denominator*integer_part
-
-    # first step
-    numerator *= 10
-    push!(ordered_steps, numerator)
-    push!(unique_steps, numerator)
+    remainder::Int = numerator - denominator*integer_part
 
     # iterative decimal expansion
     while true
-        digit = div(numerator, denominator)
-        numerator -= digit*denominator        
-        numerator *= 10
+        remainder *= 10
+        push!(ordered_steps, remainder)
+        length(unique_steps) == push!(unique_steps, remainder) |> length &&
+            break
 
-        push!(ordered_steps, numerator)
+        digit = div(remainder, denominator)
         push!(decimals, digit)
 
-        length(unique_steps) == push!(unique_steps, numerator) |> length &&
-            break
+        remainder -= digit*denominator
     end
 
     # separate recurring / non-recurring parts
-    i = find(x->x==numerator, ordered_steps)[1]
+    i = find(x->x==remainder, ordered_steps)[1]
     recurring     = decimals[i:end] |> join
     non_recurring = decimals[1:i-1] |> join
 
