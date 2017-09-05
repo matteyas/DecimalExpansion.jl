@@ -47,25 +47,25 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
     output
 end
 
-# NUMBER TO RATIONAL (INVERSE DECIMAL EXPANSION)
+# NUMBER TO RATIONAL
 function to_rational(n::Number)
-    to_int(x::Number) = round(x) |> Int
-    
-    a = n
-    b = n
-    R = 2n
-    h = 1/100 # conservative
+    La, Lb = 0, 1
+    Ua, Ub = 1, 0
 
-    while R - b |> abs > 0
-        while a - round(a) |> abs > h
-            a += b
+    Ma, Mb = 1, 1
+    M = Ma/Mb
+    while true
+        if M < x
+            La, Lb = Ma, Mb
+        elseif M > x
+            Ua, Ub = Ma, Mb
+        else
+            break
         end
-        
-        R = to_int(a) // to_int(a/b)
-        a += b
+        Ma, Mb = La+Ua, Lb+Ub
+        M = Ma/Mb
     end
-    
-    R
+    Ma//Mb
 end
 
 end
