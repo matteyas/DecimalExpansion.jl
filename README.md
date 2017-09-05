@@ -80,21 +80,21 @@ end
 ```julia
 function to_rational(n::Number)
     to_int(x::Number) = round(x) |> Int
-    
+
     a = n
     b = n
-    R = 2n
-    h = 1/100 # conservative
+    R = 1//2
+    h = 1/10
 
-    while R - b |> abs > 0
-        while a - round(a) |> abs > h
+    while abs(R - b) > 0
+        while abs(a - round(a)) > h
             a += b
         end
-        
+
         R = to_int(a) // to_int(a/b)
         a += b
     end
-    
+
     R
 end
 ```
