@@ -77,24 +77,26 @@ end
 `15 |> to_rational -> 15//1`
 
 ## Source:
+This is an implementation of a [Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree).
+
 ```julia
 function to_rational(n::Number)
-    to_int(x::Number) = round(x) |> Int
+    La, Lb = 0, 1
+    Ua, Ub = 1, 0
 
-    a = n
-    b = n
-    R = 1//2
-    h = 1/10
-
-    while abs(R - b) > 0
-        while abs(a - round(a)) > h
-            a += b
+    Ma, Mb = 1, 1
+    M = Ma/Mb
+    while true
+        if M < x
+            La, Lb = Ma, Mb
+        elseif M > x
+            Ua, Ub = Ma, Mb
+        else
+            break
         end
-
-        R = to_int(a) // to_int(a/b)
-        a += b
+        Ma, Mb = La+Ua, Lb+Ub
+        M = Ma/Mb
     end
-
-    R
+    Ma//Mb
 end
 ```
