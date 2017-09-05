@@ -80,7 +80,7 @@ end
 This is an implementation of a [Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree) binary search.
 
 ```julia
-function to_rational(n::Number)
+function to_rational(x::Number)
     La, Lb = 0, 1
     Ua, Ub = 1, 0
 
