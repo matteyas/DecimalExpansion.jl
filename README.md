@@ -77,7 +77,7 @@ end
 `15 |> to_rational -> 15//1`
 
 ## Source:
-This is an implementation of a [Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree).
+This is an implementation of a [Stern-Brocot tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree) binary search.
 
 ```julia
 function to_rational(n::Number)
