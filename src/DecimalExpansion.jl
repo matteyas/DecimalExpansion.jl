@@ -48,7 +48,7 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
 end
 
 # NUMBER TO RATIONAL
-function to_rational(n::Number)
+function to_rational(x::Number)
     La, Lb = 0, 1
     Ua, Ub = 1, 0
 
