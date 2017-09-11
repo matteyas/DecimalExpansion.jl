@@ -20,7 +20,8 @@ The last (three) digits repeat indefinitely:
 ### Several repeating decimals
 Everything in the brackets repeat indefinitely:  
 `decimal_expansion(1//7) -> 0.[142857]... = 0.142857142857142857...`  
-`decimal_expansion(105//13) -> 8.[076923]... = 8.076923076923076923...`
+`decimal_expansion(105//13) -> 8.[076923]... = 8.076923076923076923...`  
+`decimal_expansion(1//44) -> 0.02[27]... = 0.02272727272727...`
 
 ## Source:
 ```julia
