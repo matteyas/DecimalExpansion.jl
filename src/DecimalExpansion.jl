@@ -48,25 +48,29 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
 end
 
 # NUMBER TO RATIONAL
-function to_rational(x::Number)
-    La, Lb = 0, 1
-    Ua, Ub = 1, 0
+function to_rational(x::T) where T<:Number
+  int_type = sizeof(x) <= 8 ? Int : BigInt
 
-    Ma, Mb = 1, 1
-    M = Ma/Mb
-    while true
-        if M < x
-            La, Lb = Ma, Mb
-        elseif M > x
-            Ua, Ub = Ma, Mb
-        else
-            break
-        end
-        Ma, Mb = La+Ua, Lb+Ub
-        M = Ma/Mb
+  La, Lb = zero(int_type), one(int_type)
+  Ua, Ub = one(int_type), zero(int_type)
+
+  Ma, Mb = one(int_type), one(int_type)
+
+  while true
+
+    M = Ma/Mb   
+    if M < x
+      La, Lb = Ma, Mb
+    elseif M > x
+      Ua, Ub = Ma, Mb
+    else
+      break
     end
-    
-    Ma//Mb
+
+    Ma, Mb = La+Ua, Lb+Ub
+  end
+
+  Ma//Mb
 end
 
 end
