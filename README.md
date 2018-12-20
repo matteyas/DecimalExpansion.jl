@@ -52,7 +52,7 @@ function decimal_expansion(numerator::Int, denominator::Int)::String
     end
 
     # separate recurring / non-recurring parts
-    i = find(x->x==remainder, ordered_steps)[1]
+    i = findfirst(x->x==remainder, ordered_steps)
     recurring     = decimals[i:end] |> join
     non_recurring = decimals[1:i-1] |> join
 
